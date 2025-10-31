@@ -1,9 +1,12 @@
-# gcsbackend/vercel_wsgi.py
-# wrapper so Vercel finds `app` or `handler` variables.
+import sys
+import os
 
-# Import the Django WSGI application and expose it under the names Vercel expects.
-# Your gcsbackend/gcsbackend/wsgi.py already exposes `application`.
-from gcsbackend.wsgi import application as app
+# Add the current project directory to PYTHONPATH
+sys.path.append(os.path.dirname(__file__))
 
-# also provide `handler` as an alias (Vercel accepts either `app` or `handler`)
-handler = app
+# Set DJANGO_SETTINGS_MODULE to your settings file
+os.environ.setdefault("DJANGO_SETTINGS_MODULE", "gcsbackend.settings")
+
+from django.core.wsgi import get_wsgi_application
+
+app = get_wsgi_application()
