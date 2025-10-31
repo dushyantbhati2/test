@@ -1,12 +1,11 @@
-import sys
 import os
+import sys
+from pathlib import Path
 
-# Add the current project directory to PYTHONPATH
-sys.path.append(os.path.dirname(__file__))
+# add project root (one level above current file)
+sys.path.append(str(Path(__file__).resolve().parent))
 
-# Set DJANGO_SETTINGS_MODULE to your settings file
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "gcsbackend.settings")
 
 from django.core.wsgi import get_wsgi_application
-
 app = get_wsgi_application()
