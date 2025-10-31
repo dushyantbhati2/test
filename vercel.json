@@ -1,7 +1,7 @@
 {
   "version": 2,
   "builds": [
-    { "src": "gcsbackend/vercel_wsgi.py", "use": "@vercel/python" }
+    { "src": "gcsbackend/gcsbackend/vercel_wsgi.py", "use": "@vercel/python" }
   ],
   "routes": [
     { "src": "/static/(.*)", "dest": "/static/$1" },
