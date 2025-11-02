@@ -9,7 +9,7 @@ load_dotenv()
 BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure--fxar=p*0bgo0g@)3ytzr0m(h+gwchym!a66r5wvl-w3o9w4sl'
 DEBUG = True
-ALLOWED_HOSTS = ["127.0.0.1", ".vercel.app","https://gcsapp-rust.vercel.app"]
+ALLOWED_HOSTS = ["127.0.0.1", ".vercel.app"]
 
 INSTALLED_APPS = [
     'django.contrib.admin',
