@@ -4,7 +4,16 @@ from rest_framework.permissions import IsAuthenticated
 from rest_framework_simplejwt.authentication import JWTAuthentication
 from django.db import DatabaseError
 from . import models, serializers
+from drf_spectacular.utils import extend_schema, extend_schema_view, OpenApiResponse, OpenApiParameter, OpenApiTypes
 
+
+@extend_schema_view(
+    list=extend_schema(summary="List objects"),
+    retrieve=extend_schema(summary="Retrieve object"),
+    create=extend_schema(summary="Create object", request=None, responses={201: OpenApiResponse(description="Created")}),
+    update=extend_schema(summary="Update object"),
+    destroy=extend_schema(summary="Destroy object"),
+)
 class AttendanceViewSet(viewsets.ModelViewSet):
     queryset = models.Attendance.objects.all()
     serializer_class = serializers.AttendanceSerializer
